@@ -370,6 +370,8 @@
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/UnityEngine.UI.ref.dll"
 -analyzer:"D:/Program Files/Unity/Hub/Editor/2022.3.3f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll"
 -analyzer:"D:/Program Files/Unity/Hub/Editor/2022.3.3f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
+"Assets/Script/DoorManager.cs"
+"Assets/Script/PlayerCasting.cs"
 "Assets/Script/RoomCreate.cs"
 "Assets/Script/RoomCreateTrigger.cs"
 "Assets/Standard Assets (From Unity)/Standard Assets/Characters/FirstPersonCharacter/Scripts/FirstPersonController.cs"
