@@ -1,23 +1,25 @@
-ï»¿using System.Collections.Generic;
-using Unity.VisualScripting;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class RoomCreate : MonoBehaviour
 {
-    [SerializeField] GameObject[] prefabs; // ä½ çš„Prefabé™£åˆ—
-    [SerializeField] float spacing = 8f; // Xè»¸æˆ–Zè»¸çš„é–“éš”
-    [SerializeField] int arraySize = 8;
+    [Header("¥Í¦¨ªºPrefab°}¦C")]
+    [SerializeField] GameObject[] prefabs;
+    [Header("Prefab¤§¶¡ªº¶¡¹j")]
+    [SerializeField] float spacing = 8f;
+    [Header("¥Í¦¨Prefabªº¤E®c®æ¤j¤p")]
+    [SerializeField] int arraySize = 3;
 
     private Dictionary<int, GameObject>[,] roomDictionary;
     private Dictionary<int, GameObject> preRoomDictionary = new Dictionary<int, GameObject>();
 
     void Awake()
     {
-        //GeneratePrefabsWithArray();
+        
     }
 
     /// <summary>
-    /// åœ¨äºŒéšçŸ©é™£ç”ŸæˆPrefab
+    /// ¦b¤G¶¥¯x°}¥Í¦¨Prefab( ¼È®É¼o±ó )
     /// </summary>
     void GeneratePrefabsWithArray()
     {
@@ -32,15 +34,15 @@ public class RoomCreate : MonoBehaviour
         {
             for (int j = 0; j < arraySize; j++)
             {
-                // éš¨æ©Ÿé¸æ“‡ä¸€å€‹Prefab
+                // ÀH¾÷¿ï¾Ü¤@­ÓPrefab
                 GameObject selectedPrefab = prefabs[Random.Range(0, prefabs.Length)];
-                    
+
                 float OffsetX = (i * spacing) - centerOffsetX;
                 float OffsetZ = (j * spacing) - centerOffsetZ;
 
                 Vector3 spawnPosition = new Vector3(OffsetX, 0f, OffsetZ);
 
-                // ç”ŸæˆPrefab
+                // ¥Í¦¨Prefab
                 Instantiate(selectedPrefab, spawnPosition, Quaternion.identity, transform);
                 roomDictionary[i, j] = new Dictionary<int, GameObject>
                 {
@@ -58,18 +60,18 @@ public class RoomCreate : MonoBehaviour
         {
             for (int j = 0; j < 3; j++)
             {
-                // éš¨æ©Ÿé¸æ“‡ä¸€å€‹Prefab
+                // ÀH¾÷¿ï¾Ü¤@­ÓPrefab
                 GameObject selectedPrefab = prefabs[Random.Range(0, prefabs.Length)];
 
-                float offsetX = (i-1) * spacing;
-                float offsetZ = (j-1) * spacing;
+                float offsetX = (i - 1) * spacing;
+                float offsetZ = (j - 1) * spacing;
 
                 Vector3 spawnPosition = new Vector3(centerPosition.x + offsetX, 0f, centerPosition.z + offsetZ);
 
-                // ç”ŸæˆPrefab
-                if (spawnPosition.x != centerPosition.x || spawnPosition.z != centerPosition.z) 
+                // ¥Í¦¨Prefab
+                if (spawnPosition.x != centerPosition.x || spawnPosition.z != centerPosition.z)
                     Instantiate(selectedPrefab, spawnPosition, Quaternion.identity, transform);
-                    
+
             }
         }
         AddPreRoomDictionary();
@@ -90,9 +92,9 @@ public class RoomCreate : MonoBehaviour
 
     public void DestroyPreRoom(GameObject centerRoom)
     {
-        foreach(KeyValuePair<int, GameObject> room in preRoomDictionary)
+        foreach (KeyValuePair<int, GameObject> room in preRoomDictionary)
         {
-            if(centerRoom != room.Value) Destroy(room.Value);
+            if (centerRoom != room.Value) Destroy(room.Value);
         }
     }
 }
