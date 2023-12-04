@@ -67,6 +67,7 @@
     <Compile Include="Assets\Standard Assets (From Unity)\Standard Assets\Utility\FollowTarget.cs" />
     <Compile Include="Assets\Standard Assets (From Unity)\Standard Assets\Utility\FOVKick.cs" />
     <Compile Include="Assets\Standard Assets (From Unity)\Standard Assets\Characters\FirstPersonCharacter\Scripts\FirstPersonController.cs" />
+    <Compile Include="Assets\Script\Keys\KeyManager.cs" />
     <Compile Include="Assets\StarterAssets\Mobile\Scripts\VirtualInputs\UIVirtualTouchZone.cs" />
     <Compile Include="Assets\Standard Assets (From Unity)\Standard Assets\Utility\LerpControlledBob.cs" />
     <Compile Include="Assets\Standard Assets (From Unity)\Standard Assets\Utility\TimedObjectActivator.cs" />
@@ -76,6 +77,7 @@
     <Compile Include="Assets\Standard Assets (From Unity)\Standard Assets\Utility\ActivateTrigger.cs" />
     <Compile Include="Assets\StarterAssets\Mobile\Scripts\VirtualInputs\UIVirtualButton.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
+    <Compile Include="Assets\Script\Keys\KeyDoor.cs" />
     <Compile Include="Assets\Standard Assets (From Unity)\Standard Assets\Utility\PlatformSpecificContent.cs" />
     <Compile Include="Assets\Script\DoorManager.cs" />
     <Compile Include="Assets\Standard Assets (From Unity)\Standard Assets\Utility\WaypointCircuit.cs" />
@@ -93,6 +95,7 @@
     <Compile Include="Assets\StarterAssets\InputSystem\StarterAssetsInputs.cs" />
     <Compile Include="Assets\Standard Assets (From Unity)\Standard Assets\Utility\DragRigidbody.cs" />
     <Compile Include="Assets\Standard Assets (From Unity)\Standard Assets\Utility\AutoMobileShaderSwitch.cs" />
+    <Compile Include="Assets\Script\Keys\Key.cs" />
     <Compile Include="Assets\Standard Assets (From Unity)\Standard Assets\Utility\SmoothFollow.cs" />
   </ItemGroup>
   <ItemGroup>

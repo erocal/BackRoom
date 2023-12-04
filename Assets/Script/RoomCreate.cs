@@ -10,8 +10,12 @@ public class RoomCreate : MonoBehaviour
     [Header("ネΘPrefab甤")]
     [SerializeField] int arraySize = 3;
 
+    #region -- 把计把σ跋 --
+
     private Dictionary<int, GameObject>[,] roomDictionary;
     private Dictionary<int, GameObject> preRoomDictionary = new Dictionary<int, GameObject>();
+
+    #endregion
 
     void Awake()
     {
@@ -56,15 +60,18 @@ public class RoomCreate : MonoBehaviour
 
     public void GeneratePrefabsNineSquareDivision(Vector3 centerPosition = new Vector3())
     {
-        for (int i = 0; i < 3; i++)
+        // い计
+        int medianNumber = arraySize / 2;
+
+        for (int i = 0; i < arraySize; i++)
         {
-            for (int j = 0; j < 3; j++)
+            for (int j = 0; j < arraySize; j++)
             {
                 // 繦诀匡拒Prefab
                 GameObject selectedPrefab = prefabs[Random.Range(0, prefabs.Length)];
 
-                float offsetX = (i - 1) * spacing;
-                float offsetZ = (j - 1) * spacing;
+                float offsetX = (medianNumber - i) * spacing;
+                float offsetZ = (medianNumber - j) * spacing;
 
                 Vector3 spawnPosition = new Vector3(centerPosition.x + offsetX, 0f, centerPosition.z + offsetZ);
 
