@@ -1,5 +1,3 @@
-// Coded by Developer Jake -- https://www.youtube.com/developerjake
-// Follow the Backrooms Game Lab (Part 7) to understand what this is for
 
 using UnityEngine;
 
@@ -11,13 +9,23 @@ public class KeyDoor : MonoBehaviour // This script should be on the Locked Door
 
     [Header("References")]
 
-    public GameObject CursorHover; // The hover cursor that should show when the player is looking at the door
+    [SerializeField] GameObject CursorHover; // The hover cursor that should show when the player is looking at the door
 
-    public Animation Door;
+    [SerializeField] Animation Door;
 
-    public AudioSource DoorOpenSound;
+    [Header("門開啟的聲音")]
+    [SerializeField] AudioSource DoorOpenSound;
+
+    [Header("門是鎖住的聲音")]
+    [SerializeField] AudioSource LockedDoorSound;
+
+    #region -- 參數參考區 --
 
     private KeyManager km;
+
+    bool isUnlocked = false;
+
+    #endregion
 
     private void Start()
     {
@@ -49,8 +57,12 @@ public class KeyDoor : MonoBehaviour // This script should be on the Locked Door
                         DoorOpenSound.Play(); // Play the door open sound
 
                         km.keysInInventory.Remove(key); // Removes the key from the inventory
+
+                        isUnlocked = true;
                     }
                 }
+
+                if ( !isUnlocked ) LockedDoorSound.Play();
             }
 
         }
