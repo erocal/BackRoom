@@ -37,6 +37,7 @@ public class FlashlightManager : MonoBehaviour
 
     #region -- 參數參考區 --
 
+    [Tooltip("手電筒的燈是否開啟")]
     private bool flashlightIsOn = true;
 
     #endregion
@@ -60,6 +61,12 @@ public class FlashlightManager : MonoBehaviour
 
         if ( state == FlashlightState.Off || state == FlashlightState.Dead) flashlightLight.SetActive(false);
         else if (state == FlashlightState.On) flashlightLight.SetActive(true);
+    
+        if ( currentBattery <= 0 )
+        {
+            currentBattery = 0;
+            state = FlashlightState.Dead;
+        }
     }
 
     #endregion
@@ -68,6 +75,12 @@ public class FlashlightManager : MonoBehaviour
 
     private void GainBattery( int amount )
     {
+        if ( currentBattery == 0 )
+        {
+            state = FlashlightState.On;
+            flashlightIsOn = true;
+        }
+
         if (currentBattery + amount > maxBattery)
         {
             currentBattery = maxBattery;
