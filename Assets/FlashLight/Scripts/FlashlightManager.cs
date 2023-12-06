@@ -15,9 +15,9 @@ public class FlashlightManager : MonoBehaviour
     [Tooltip("電池量損失的速度")]
     [Range(0.0f, 2f)][SerializeField] float batteryLossTick = 0.5f;
 
-    [Header("開始時攜帶的電池量")]
-    [Tooltip("開始時攜帶的電池量")]
-    [SerializeField] int startBattery = 100;
+    [Header("最大電池量")]
+    [Tooltip("最大電池量")]
+    [SerializeField] int maxBattery = 100;
 
     [Header("目前的電池量")]
     [Tooltip("目前的電池量")]
@@ -31,11 +31,21 @@ public class FlashlightManager : MonoBehaviour
     [Tooltip("決定開啟手電筒的按鍵")]
     [SerializeField] KeyCode ToggleKey;
 
+    [Header("手電筒的光")]
+    [Tooltip("手電筒的光")]
+    [SerializeField] GameObject flashlightLight;
+
+    #region -- 參數參考區 --
+
     private bool flashlightIsOn = true;
+
+    #endregion
+
+    #region -- 初始化/運作 --
 
     private void Awake()
     {
-        currentBattery = startBattery;
+        currentBattery = maxBattery;
     }
 
     private void Start()
@@ -46,23 +56,37 @@ public class FlashlightManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(ToggleKey)) { ToogleFlashlight(); }
+        if (Input.GetKeyDown(ToggleKey)) { ToogleFlashlight(); } // 是否按了手電筒的開關
+
+        if ( state == FlashlightState.Off || state == FlashlightState.Dead) flashlightLight.SetActive(false);
+        else if (state == FlashlightState.On) flashlightLight.SetActive(true);
     }
+
+    #endregion
+
+    #region -- 方法參考區 --
 
     private void GainBattery( int amount )
     {
-
+        if (currentBattery + amount > maxBattery)
+        {
+            currentBattery = maxBattery;
+        }
+        else currentBattery += amount;
     }
 
     private void LoseBattery()
     {
-        
+        if (state == FlashlightState.On) currentBattery--;
     }
 
+    // 開啟/關閉手電筒
     private void ToogleFlashlight()
     {
         flashlightIsOn = !flashlightIsOn;
 
         if ( state == FlashlightState.Dead ) flashlightIsOn = false;
     }
+
+    #endregion
 }
