@@ -9,6 +9,7 @@ public enum FlashlightState
     Dead
 }
 
+[RequireComponent(typeof(AudioSource))]
 public class FlashlightManager : MonoBehaviour
 {
     [Header("電池量損失的速度")]
@@ -34,6 +35,10 @@ public class FlashlightManager : MonoBehaviour
     [Header("手電筒的光")]
     [Tooltip("手電筒的光")]
     [SerializeField] GameObject flashlightLight;
+
+    [Header("手電筒開關的聲音")]
+    [Tooltip("手電筒開關的聲音")]
+    [SerializeField] AudioClip flashlightOn_FX, flashlightOff_FX;
 
     #region -- 參數參考區 --
 
@@ -62,10 +67,12 @@ public class FlashlightManager : MonoBehaviour
         if ( state == FlashlightState.Off || state == FlashlightState.Dead) flashlightLight.SetActive(false);
         else if (state == FlashlightState.On) flashlightLight.SetActive(true);
     
+        // 手電筒沒電的時候
         if ( currentBattery <= 0 )
         {
             currentBattery = 0;
             state = FlashlightState.Dead;
+            flashlightIsOn = false;
         }
     }
 
@@ -73,7 +80,7 @@ public class FlashlightManager : MonoBehaviour
 
     #region -- 方法參考區 --
 
-    private void GainBattery( int amount )
+    public void GainBattery( int amount )
     {
         if ( currentBattery == 0 )
         {
@@ -99,6 +106,20 @@ public class FlashlightManager : MonoBehaviour
         flashlightIsOn = !flashlightIsOn;
 
         if ( state == FlashlightState.Dead ) flashlightIsOn = false;
+
+        // 更改手電筒狀態和開啟對應聲音
+        if (flashlightIsOn)
+        {
+            GetComponent<AudioSource>()?.PlayOneShot(flashlightOff_FX);
+
+            state = FlashlightState.On;
+        }
+        else
+        {
+            GetComponent<AudioSource>()?.PlayOneShot(flashlightOn_FX);
+
+            state = FlashlightState.Off;
+        }
     }
 
     #endregion
