@@ -12,7 +12,7 @@ public class RoomCreateTrigger : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         roomCreate.DestroyPreRoom(transform.parent.gameObject);
-        roomCreate.GeneratePrefabsNineSquareDivision(transform.position);
+        roomCreate.GeneratePrefabsNineSquareDivision(transform.parent.position);
         Debug.Log($"{other} is enter");
     }
 }

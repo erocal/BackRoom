@@ -14,6 +14,14 @@ public class Battery : MonoBehaviour
     [Tooltip("電池邊緣顯示")]
     [SerializeField] GameObject[] HoverObject;
 
+    public void OnMouseEnter()
+    {
+        foreach (var obj in HoverObject)
+        {
+            obj.SetActive(true);
+        }
+    }
+
     public void OnMouseOver()
     {
         if (Input.GetKeyDown(CollectKey))
