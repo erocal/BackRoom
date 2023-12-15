@@ -7,7 +7,8 @@ public class RoomCreate : MonoBehaviour
     [SerializeField] GameObject[] prefabs;
     [Header("Prefab之間的間隔")]
     [SerializeField] float spacing = 8f;
-    [Header("生成Prefab的九宮格大小")]
+    [Header("生成的九宮格大小")]
+    [Tooltip("生成的九宮格大小")]
     [SerializeField] int arraySize = 3;
     [Header("生成Prefab隨機選擇角度")]
     [Tooltip("生成Prefab隨機選擇角度")]

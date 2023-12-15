@@ -1,4 +1,4 @@
-
+ï»¿
 using UnityEngine;
 
 public class KeyDoor : MonoBehaviour // This script should be on the Locked Door Trigger
@@ -13,13 +13,13 @@ public class KeyDoor : MonoBehaviour // This script should be on the Locked Door
 
     [SerializeField] Animation Door;
 
-    [Header("ªù¶}±ÒªºÁn­µ")]
+    [Header("é–€é–‹å•Ÿçš„è²éŸ³")]
     [SerializeField] AudioSource DoorOpenSound;
 
-    [Header("ªù¬OÂê¦íªºÁn­µ")]
+    [Header("é–€æ˜¯é–ä½çš„è²éŸ³")]
     [SerializeField] AudioSource LockedDoorSound;
 
-    #region -- °Ñ¼Æ°Ñ¦Ò°Ï --
+    #region -- åƒæ•¸åƒè€ƒå€ --
 
     private KeyManager km;
 
