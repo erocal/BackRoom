@@ -4579,6 +4579,84 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 729686505}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &730922213
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4063693532950601559, guid: 98d02ce52f4365346a710b10ced4c586,
+        type: 3}
+      propertyPath: m_Name
+      value: Pause Game Manager
+      objectReference: {fileID: 0}
+    - target: {fileID: 4239287875174898673, guid: 98d02ce52f4365346a710b10ced4c586,
+        type: 3}
+      propertyPath: winUI
+      value: 
+      objectReference: {fileID: 802234292}
+    - target: {fileID: 5767824534246982966, guid: 98d02ce52f4365346a710b10ced4c586,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 5767824534246982966, guid: 98d02ce52f4365346a710b10ced4c586,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5767824534246982966, guid: 98d02ce52f4365346a710b10ced4c586,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5767824534246982966, guid: 98d02ce52f4365346a710b10ced4c586,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5767824534246982966, guid: 98d02ce52f4365346a710b10ced4c586,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5767824534246982966, guid: 98d02ce52f4365346a710b10ced4c586,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5767824534246982966, guid: 98d02ce52f4365346a710b10ced4c586,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5767824534246982966, guid: 98d02ce52f4365346a710b10ced4c586,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5767824534246982966, guid: 98d02ce52f4365346a710b10ced4c586,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5767824534246982966, guid: 98d02ce52f4365346a710b10ced4c586,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5767824534246982966, guid: 98d02ce52f4365346a710b10ced4c586,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 98d02ce52f4365346a710b10ced4c586, type: 3}
 --- !u!1 &733275668
 GameObject:
   m_ObjectHideFlags: 0
@@ -12785,6 +12863,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Save Game Manager
+      objectReference: {fileID: 0}
+    - target: {fileID: 2007918301500980928, guid: d369a5598262a424eb63e4f2ad714f93,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3500987707635732959, guid: d369a5598262a424eb63e4f2ad714f93,
         type: 3}
