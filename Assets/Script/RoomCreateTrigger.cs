@@ -11,7 +11,11 @@ public class RoomCreateTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        roomCreate.DestroyPreRoom(transform.parent.gameObject);
-        roomCreate.GeneratePrefabsNineSquareDivision(transform.parent.position);
+        if (!roomCreate.isCreateOnce)
+        {
+            roomCreate.DestroyPreRoom(transform.parent.gameObject);
+            roomCreate.GeneratePrefabsNineSquareDivision(transform.parent.position);
+        }
+        
     }
 }

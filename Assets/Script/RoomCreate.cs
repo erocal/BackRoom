@@ -13,6 +13,9 @@ public class RoomCreate : MonoBehaviour
     [Header("生成Prefab隨機選擇角度")]
     [Tooltip("生成Prefab隨機選擇角度")]
     [SerializeField] bool isRandomAngle = false;
+    [Header("是否只進行一次生成")]
+    [Tooltip("是否只進行一次生成")]
+    public bool isCreateOnce = false;
 
 
     #region -- 參數參考區 --
@@ -24,7 +27,7 @@ public class RoomCreate : MonoBehaviour
 
     void Awake()
     {
-        
+        if (isCreateOnce) GeneratePrefabsNineSquareDivision(Vector3.zero);
     }
 
     /// <summary>
