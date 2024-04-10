@@ -1,23 +1,23 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SaveLevel : MonoBehaviour
 {
-    [SerializeField] GameObject SaveGameUI; // "¦Û°ÊÀx¦s :) ......"
+    [SerializeField] GameObject SaveGameUI; // "è‡ªå‹•å„²å­˜ :) ......"
 
     [Range(1, 30)]
-    [SerializeField] float timeBetweenSaves; // ¦Û°ÊÀx¦sªº®É¶¡¶¡¹j
+    [SerializeField] float timeBetweenSaves; // è‡ªå‹•å„²å­˜çš„æ™‚é–“é–“éš”
 
     private void Awake()
     {
-        InvokeRepeating(nameof(SaveGame), timeBetweenSaves, timeBetweenSaves); // ¦b¦Û°ÊÀx¦sªº®É¶¡¶¡¹j¤£Â_©I¥sSaveGame()
+        InvokeRepeating(nameof(SaveGame), timeBetweenSaves, timeBetweenSaves); // åœ¨è‡ªå‹•å„²å­˜çš„æ™‚é–“é–“éš”ä¸æ–·å‘¼å«SaveGame()
     }
 
     private void SaveGame()
     {
         SaveGameUI.SetActive(true);
 
-        // Àx¦s¥Ø«eªºLevel¨Ñ¤U¦¸¸ü¤J¹CÀ¸
+        // å„²å­˜ç›®å‰çš„Levelä¾›ä¸‹æ¬¡è¼‰å…¥éŠæˆ²
         PlayerPrefs.SetString("loaded level", SceneManager.GetActiveScene().name);
 
         PlayerPrefs.Save();
