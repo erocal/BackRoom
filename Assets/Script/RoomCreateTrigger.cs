@@ -2,7 +2,14 @@
 
 public class RoomCreateTrigger : MonoBehaviour
 {
+
+    #region -- 變數參考區 --
+
     RoomCreate roomCreate;
+
+    #endregion
+
+    #region -- 初始化/運作 --
 
     private void Awake()
     {
@@ -13,9 +20,13 @@ public class RoomCreateTrigger : MonoBehaviour
     {
         if (!roomCreate.isCreateOnce)
         {
+            roomCreate.DestroyPreAirWall();
             roomCreate.DestroyPreRoom(transform.parent.gameObject);
             roomCreate.GeneratePrefabsNineSquareDivision(transform.parent.position);
         }
         
     }
+
+    #endregion
+
 }

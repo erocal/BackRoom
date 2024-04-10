@@ -1,18 +1,23 @@
-// Coded by Developer Jake -- https://www.youtube.com/developerjake
+﻿// Coded by Developer Jake -- https://www.youtube.com/developerjake
 // Follow the Backrooms Game Lab (Part 7) to understand what this is for
 
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Key : MonoBehaviour
 {
+
+    #region -- 資源參考區 --
+
     [Tooltip("The name of the key. This corresponds with the key on the door")] public string keyName;
 
     public GameObject HoverIcon;
 
     [Header("(Optional)")]
     [Tooltip("(Optional.)")] public AudioClip CollectAudio;
+
+    #endregion
+
+    #region -- 初始化/運作 --
 
     public void OnMouseOver()
     {
@@ -39,4 +44,7 @@ public class Key : MonoBehaviour
     {
         HoverIcon.SetActive(false);
     }
+
+    #endregion
+
 }

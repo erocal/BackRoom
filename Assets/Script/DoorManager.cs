@@ -2,11 +2,18 @@ using UnityEngine;
 
 public class DoorManager : MonoBehaviour // This script should be on the Door Trigger
 {
+
+    #region --  資源參考區 --
+
     public GameObject CursorHover; // The hover cursor that should show when the player is looking at the door
 
     public Animation Door;
 
     public AudioSource DoorOpenSound;
+
+    #endregion
+
+    #region -- 初始化/運作 --
 
     private void OnMouseOver() // Activates when the player looks away from the door
     {
@@ -39,12 +46,13 @@ public class DoorManager : MonoBehaviour // This script should be on the Door Tr
         }
     }
 
-
-
     private void OnMouseExit() // Activates when the player looks away from the door
     {
 
         CursorHover.SetActive(false);
 
     }
+
+    #endregion
+
 }

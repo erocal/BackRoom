@@ -2,6 +2,9 @@
 
 public class ScreenChanger : MonoBehaviour
 {
+
+    #region -- 方法參考區 --
+
     /// <summary>
     /// 更改螢幕方向為直式或橫式
     /// </summary>
@@ -20,4 +23,7 @@ public class ScreenChanger : MonoBehaviour
         // 應用新方向
         Screen.orientation = targetOrientation;
     }
+
+    #endregion
+
 }

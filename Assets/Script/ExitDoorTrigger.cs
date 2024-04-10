@@ -5,9 +5,21 @@ using UnityEngine.SceneManagement;
 
 public class ExitDoorTrigger : MonoBehaviour
 {
+
+    #region -- 資源參考區 --
+
     [SerializeField] GameObject winUI;
 
     [SerializeField] TextMeshProUGUI levelText;
+
+    #endregion
+
+    #region -- 初始化/運作 --
+
+    private void Update()
+    {
+        if (levelText != null) levelText.text = SceneManager.GetActiveScene().name;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -23,8 +35,6 @@ public class ExitDoorTrigger : MonoBehaviour
         winUI.SetActive(true);
     }
 
-    private void Update()
-    {
-        if (levelText != null) levelText.text = SceneManager.GetActiveScene().name;
-    }
+    #endregion
+
 }

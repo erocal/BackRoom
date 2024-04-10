@@ -1,11 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerCasting : MonoBehaviour
 {
+
+    #region -- 變數參考區 --
+
     public static float DistanceFromTarget;
     public float ToTarget;
+
+    #endregion
+
+    #region -- 初始化/運作 --
 
     void Update()
     {
@@ -16,4 +21,7 @@ public class PlayerCasting : MonoBehaviour
             ToTarget = Hit.distance;
         }
     }
+
+    #endregion
+
 }

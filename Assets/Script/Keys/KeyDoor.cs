@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class KeyDoor : MonoBehaviour // This script should be on the Locked Door Trigger
 {
+
+    #region -- 資源參考區 --
+
     [Header("Attributes")]
    
     [Tooltip("The name of the key that is required.")] public string keyName = "";
@@ -19,13 +22,17 @@ public class KeyDoor : MonoBehaviour // This script should be on the Locked Door
     [Header("門是鎖住的聲音")]
     [SerializeField] AudioSource LockedDoorSound;
 
-    #region -- 參數參考區 --
+    #endregion
+
+    #region -- 變數參考區 --
 
     private KeyManager km;
 
     bool isUnlocked = false;
 
     #endregion
+
+    #region -- 初始化/運作 --
 
     private void Start()
     {
@@ -75,12 +82,13 @@ public class KeyDoor : MonoBehaviour // This script should be on the Locked Door
         }
     }
 
-
-
     private void OnMouseExit() // Activates when the player looks away from the door
     {
 
         CursorHover.SetActive(false);
 
     }
+
+    #endregion
+
 }

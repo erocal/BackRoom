@@ -58,13 +58,18 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.3f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Script\PauseGameManager.cs" />
     <Compile Include="Assets\ThirdParty\Standard Assets (From Unity)\Standard Assets\Utility\CurveControlledBob.cs" />
+    <Compile Include="Assets\Script\ScreenChanger.cs" />
+    <Compile Include="Assets\Script\ExitDoorTrigger.cs" />
     <Compile Include="Assets\ThirdParty\Standard Assets (From Unity)\Standard Assets\Characters\FirstPersonCharacter\Scripts\MouseLook.cs" />
     <Compile Include="Assets\ThirdParty\FlashLight\Scripts\FlashlightManager.cs" />
+    <Compile Include="Assets\Script\LevelChanger.cs" />
     <Compile Include="Assets\ThirdParty\Standard Assets (From Unity)\Standard Assets\Utility\PlatformSpecificContent.cs" />
     <Compile Include="Assets\ThirdParty\Standard Assets (From Unity)\Standard Assets\Utility\FOVKick.cs" />
     <Compile Include="Assets\Script\Keys\KeyManager.cs" />
     <Compile Include="Assets\ThirdParty\Standard Assets (From Unity)\Standard Assets\Utility\FollowTarget.cs" />
+    <Compile Include="Assets\Script\SaveLevel.cs" />
     <Compile Include="Assets\Script\RoomCreate.cs" />
     <Compile Include="Assets\Script\RoomCreateTrigger.cs" />
     <Compile Include="Assets\ThirdParty\Standard Assets (From Unity)\Standard Assets\Utility\LerpControlledBob.cs" />
@@ -76,14 +81,17 @@
     <Compile Include="Assets\ThirdParty\Standard Assets (From Unity)\Standard Assets\Utility\WaypointProgressTracker.cs" />
     <Compile Include="Assets\ThirdParty\Standard Assets (From Unity)\Standard Assets\Utility\AutoMoveAndRotate.cs" />
     <Compile Include="Assets\ThirdParty\StarterAssets\Mobile\Scripts\Utilities\MobileDisableAutoSwitchControls.cs" />
+    <Compile Include="Assets\Script\JumpScareTrigger.cs" />
     <Compile Include="Assets\Script\PlayerCasting.cs" />
     <Compile Include="Assets\ThirdParty\Standard Assets (From Unity)\Standard Assets\Utility\SmoothFollow.cs" />
     <Compile Include="Assets\ThirdParty\Standard Assets (From Unity)\Standard Assets\Utility\DynamicShadowSettings.cs" />
+    <Compile Include="Assets\Script\LoadGameManager.cs" />
     <Compile Include="Assets\ThirdParty\StarterAssets\Mobile\Scripts\CanvasInputs\UICanvasControllerInput.cs" />
     <Compile Include="Assets\ThirdParty\StarterAssets\Mobile\Scripts\VirtualInputs\UIVirtualTouchZone.cs" />
     <Compile Include="Assets\ThirdParty\Standard Assets (From Unity)\Standard Assets\Utility\WaypointCircuit.cs" />
     <Compile Include="Assets\ThirdParty\StarterAssets\FirstPersonController\Scripts\FirstPersonController.cs" />
     <Compile Include="Assets\ThirdParty\Standard Assets (From Unity)\Standard Assets\Utility\TimedObjectActivator.cs" />
+    <Compile Include="Assets\Script\ExitGameButton.cs" />
     <Compile Include="Assets\ThirdParty\StarterAssets\FirstPersonController\Scripts\BasicRigidBodyPush.cs" />
     <Compile Include="Assets\ThirdParty\FlashLight\Scripts\Battery.cs" />
     <Compile Include="Assets\ThirdParty\Standard Assets (From Unity)\Standard Assets\Utility\ActivateTrigger.cs" />

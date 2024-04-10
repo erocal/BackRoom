@@ -2,6 +2,9 @@
 
 public class JumpScareTrigger : MonoBehaviour
 {
+
+    #region -- 資源參考區 --
+
     [Header("jumpScare的動畫")]
     [Tooltip("jumpScare的動畫")]
     [SerializeField] Animation jumpScareAnimation;
@@ -9,6 +12,10 @@ public class JumpScareTrigger : MonoBehaviour
     [Header("jumpScare的音效")]
     [Tooltip("jumpScare的音效")]
     [SerializeField] AudioSource jumpScareAudio;
+
+    #endregion
+
+    #region -- 初始化/運作 --
 
     private void Awake()
     {
@@ -26,4 +33,7 @@ public class JumpScareTrigger : MonoBehaviour
             this.gameObject.SetActive(false);
         }
     }
+
+    #endregion
+
 }

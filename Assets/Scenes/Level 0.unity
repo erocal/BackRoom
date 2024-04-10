@@ -10620,6 +10620,10 @@ MonoBehaviour:
   - {fileID: 8518802031941130355, guid: 2fb301df8f0ef71408b2efd7c785803b, type: 3}
   - {fileID: 8518802031941130355, guid: 2a1bc721fd19f7d4b85afc4d66610a63, type: 3}
   - {fileID: 8518802031941130355, guid: 3652991513039514d84e74833d09aef6, type: 3}
+  airWallHorizontalPrefab: {fileID: 1572317273961648727, guid: 15202bdf8652eaf4d9e20ddf4c02f6f3,
+    type: 3}
+  airWallVerticalPrefab: {fileID: 1572317273961648727, guid: 460136e344d804446b80efa7463a32f7,
+    type: 3}
   spacing: 32
   arraySize: 20
   isRandomAngle: 0

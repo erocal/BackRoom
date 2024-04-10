@@ -2,6 +2,9 @@
 
 public class ExitGameButton : MonoBehaviour
 {
+
+    #region -- 方法參考區 --
+
     /// <summary>
     /// 結束遊戲
     /// </summary>
@@ -15,4 +18,7 @@ public class ExitGameButton : MonoBehaviour
 
         #endif
     }
+
+    #endregion
+
 }

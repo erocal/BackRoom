@@ -5,6 +5,9 @@ using UnityStandardAssets.Characters.FirstPerson;
 
 public class PauseGameManager : MonoBehaviour
 {
+
+    #region -- 資源參考區 --
+
     [Header("要顯示Level的Text")]
     [Tooltip("要顯示Level的Text")]
     [SerializeField] TextMeshProUGUI levelText;
@@ -21,12 +24,17 @@ public class PauseGameManager : MonoBehaviour
     [Tooltip("暫停的按鍵")]
     [SerializeField] KeyCode pauseKey = KeyCode.Escape;
 
-    #region -- 參數參考區 --
+    #endregion
+
+    #region -- 變數參考區 --
 
     // 是否暫停
     bool isPaused = false;
 
     #endregion
+
+    #region --  初始化/運作 --
+
     void Update()
     {
         if (levelText.text != SceneManager.GetActiveScene().name)
@@ -55,6 +63,10 @@ public class PauseGameManager : MonoBehaviour
             ResumeGame();
         }
     }
+
+    #endregion
+
+    #region -- 方法參考區 --
 
     /// <summary>
     /// 繼續遊戲
@@ -96,4 +108,7 @@ public class PauseGameManager : MonoBehaviour
     {
         SceneManager.LoadScene("Main Menu");
     }
+
+    #endregion
+
 }

@@ -3,8 +3,16 @@ using UnityEngine;
 
 public class RoomCreate : MonoBehaviour
 {
-    [Header("生成的Prefab陣列")]
+
+    #region -- 資源參考區 --
+
+    [Header("生成的房間Prefab陣列")]
     [SerializeField] GameObject[] prefabs;
+    [Header("空氣牆")]
+    [Tooltip("生成橫的空氣牆Prefab")]
+    [SerializeField] GameObject airWallHorizontalPrefab;
+    [Tooltip("生成直的空氣牆Prefab")]
+    [SerializeField] GameObject airWallVerticalPrefab;
     [Header("Prefab之間的間隔")]
     [SerializeField] float spacing = 8f;
     [Header("生成的九宮格大小")]
@@ -17,18 +25,27 @@ public class RoomCreate : MonoBehaviour
     [Tooltip("是否只進行一次生成")]
     public bool isCreateOnce = false;
 
+    #endregion
 
     #region -- 參數參考區 --
+
+    private List<GameObject> airWallList = new List<GameObject>();
 
     private Dictionary<int, GameObject>[,] roomDictionary;
     private Dictionary<int, GameObject> preRoomDictionary = new Dictionary<int, GameObject>();
 
     #endregion
 
+    #region -- 初始化/運作 --
+
     void Awake()
     {
         if (isCreateOnce) GeneratePrefabsNineSquareDivision(Vector3.zero);
     }
+
+    #endregion
+
+    #region -- 方法參考區 --
 
     /// <summary>
     /// 在二階矩陣生成Prefab( 暫時廢棄 )
@@ -66,7 +83,11 @@ public class RoomCreate : MonoBehaviour
         }
     }
 
-    public void GeneratePrefabsNineSquareDivision(Vector3 centerPosition = new Vector3())
+    /// <summary>
+    /// 以九宮格式的方法創建Prefab
+    /// </summary>
+    /// <param name="centerPosition"></param>
+    public void GeneratePrefabsNineSquareDivision(Vector3 centerPosition)
     {
         // 中位數
         int medianNumber = arraySize / 2;
@@ -81,7 +102,7 @@ public class RoomCreate : MonoBehaviour
                 float offsetX = (medianNumber - i) * spacing;
                 float offsetZ = (medianNumber - j) * spacing;
 
-                Vector3 spawnPosition = new Vector3(centerPosition.x + offsetX, 0f, centerPosition.z + offsetZ);
+                Vector3 spawnPosition = new Vector3(centerPosition.x + offsetX, centerPosition.y, centerPosition.z + offsetZ);
 
                 // 生成Prefab
                 if (spawnPosition.x != centerPosition.x || spawnPosition.z != centerPosition.z)
@@ -94,15 +115,48 @@ public class RoomCreate : MonoBehaviour
                         Quaternion randomRotation = Quaternion.Euler(0, randomAngle, 0);
                         rotation = randomRotation;
                     }
-                    
+
                     Instantiate(selectedPrefab, spawnPosition, rotation, transform);
+
+                    GameObject airWallPrefab = CreateAirWall(spawnPosition, i, j);
+                    if (airWallPrefab != null) airWallList.Add(airWallPrefab);
+
                 }
-                    
+
             }
         }
+
         AddPreRoomDictionary();
     }
 
+    /// <summary>
+    /// 創建空氣牆
+    /// </summary>
+    private GameObject CreateAirWall(Vector3 spawnPosition, int rows, int colums)
+    {
+        if (rows == 0 && colums == arraySize / 2)
+        {
+            return Instantiate(airWallVerticalPrefab, new Vector3(spawnPosition.x + 3 * spacing / 4, spawnPosition.y, spawnPosition.z), Quaternion.identity, transform);
+        }
+        else if (colums == 0 && rows == arraySize / 2)
+        {
+            return Instantiate(airWallHorizontalPrefab, new Vector3(spawnPosition.x, spawnPosition.y, spawnPosition.z + 3 * spacing / 4), Quaternion.identity, transform);
+        }
+        else if (colums == arraySize - 1 && rows == arraySize / 2)
+        {
+            return Instantiate(airWallHorizontalPrefab, new Vector3(spawnPosition.x, spawnPosition.y, spawnPosition.z - spacing / 4), Quaternion.identity, transform);
+        }
+        else if (colums == arraySize / 2 && rows == arraySize - 1)
+        {
+            return Instantiate(airWallVerticalPrefab, new Vector3(spawnPosition.x - spacing / 4, spawnPosition.y, spawnPosition.z), Quaternion.identity, transform);
+        }
+
+        return null;
+    }
+
+    /// <summary>
+    /// 將當前創建的房間置入preRoomDictionary
+    /// </summary>
     private void AddPreRoomDictionary()
     {
         int roomId = 1;
@@ -116,6 +170,20 @@ public class RoomCreate : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 消滅之前創造的空氣牆
+    /// </summary>
+    public void DestroyPreAirWall()
+    {
+        foreach (GameObject airWallPrefab in airWallList)
+        {
+            Destroy(airWallPrefab);
+        }
+    }
+
+    /// <summary>
+    /// 消滅之前創造的房間
+    /// </summary>
     public void DestroyPreRoom(GameObject centerRoom)
     {
         foreach (KeyValuePair<int, GameObject> room in preRoomDictionary)
@@ -123,4 +191,7 @@ public class RoomCreate : MonoBehaviour
             if (centerRoom != room.Value) Destroy(room.Value);
         }
     }
+
+    #endregion
+
 }
